@@ -88,8 +88,7 @@ const questions = [
 const generateMD = (answers) => `# ${answers.userName} Portfolio
 
 ![badge](https://img.shields.io/badge/license-${answers.license}-blue.svg)
-![badge][(https://img.shields.io/badge/LinkedIn-IN%20-blue)](${answers.linkedIn})
-${answers.gitHubUser}, ${answers.email}
+![badge][(https://img.shields.io/badge/LinkedIn-IN%20-blue)]
 
 <!-- TABLE OF CONTENTS -->
 
@@ -161,7 +160,7 @@ Email: ${answers.email}
 
 LinkedIn Link: ${answers.linkedIn}
 
-Project Link: ${answers.projectLink}
+Project Link: ${answers.gitClone}
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
