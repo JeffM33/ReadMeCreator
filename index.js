@@ -27,10 +27,9 @@ const questions = [
             name: `desc`
         },
         {
-            type: `list`,                                                              
+            type: `input`,                                                              
             message: `pick your languages`,
             name: `languages`,
-            choices: ["HTML", "CSS", "Java Script", "JQuery"]
         },
         {
             type: `input`,                                                              
@@ -81,10 +80,11 @@ const questions = [
 
 //JSON.parseInt();
 
-const generateMD = (answers) => `# Jeffrey-McLeod-Portfolio-
+const generateMD = (answers) => `# ${name}Portfolio
 
 ![badge](https://img.shields.io/badge/license-${answers.license}-blue.svg)
 [![LinkedIn][linkedIn-shield](${answers.linkedIn})
+${answers.gitHubUser}, ${answers.email}
 
 <!-- TABLE OF CONTENTS -->
 
@@ -103,30 +103,33 @@ const generateMD = (answers) => `# Jeffrey-McLeod-Portfolio-
 ## About The Project
 ${answers.desc}
 
-${answers.gitHubUser}, ${answers.email}
-
 <!-- GETTING STARTED -->
 ## Getting Started
 
 To get a local copy up and running follow these simple steps.
 
+<!-- Prerequisites -->
+${test}
+
 ### Installation
 
 1. Clone the repo
    sh
-   git clone https://github.com/JeffM33/Jeffrey-McLeod-Portfolio-.git
+   git clone ${gitClone}
    
 
 
 
 <!-- USAGE EXAMPLES -->
-## Usage
+### Usage
+${usage}
+${languages} 
 
 <!-- ROADMAP -->
-## Roadmap
+### Roadmap
 
 <!-- CONTRIBUTING -->
-## Contributing
+### Contributing
 
 Contributions are what make the open source community such an amazing place to be learn, inspire, and create. Any contributions you make are **greatly appreciated**.
 
@@ -136,6 +139,7 @@ Contributions are what make the open source community such an amazing place to b
 4. Push to the Branch (git push origin feature/AmazingFeature)
 5. Open a Pull Request
 
+${contr}
 
 <!-- CONTACT -->
 ## Contact
