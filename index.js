@@ -5,7 +5,7 @@ const util = require('util');
 
 const writeFileAsync = util.promisify(fs.writeFile);
 
-// // TODO: Create an array of questions for user input
+// List of questions to be populated in the read me file
 // description, check  
 // installation instructions, 
 // usage information, 
@@ -14,17 +14,21 @@ const writeFileAsync = util.promisify(fs.writeFile);
 // git hub username -make this a hype link to git hub page
 // email
 // Table of contents takes to the corresponding section
-
 const questions = [
         {
             type: `input`,                                                              
             message: `What is your full name?`,
-            name: `name`
+            name: `userName`
         },
         {
             type: `input`,                                                              
             message: `type out a description of your project`,
             name: `desc`
+        },
+        {
+            type: `input`,                                                              
+            message: `Type out how to get started with your project`,
+            name: `gettingStarted`
         },
         {
             type: `input`,                                                              
@@ -68,6 +72,11 @@ const questions = [
             name: `gitClone`
         },
         {
+            type: `input`,                                                              
+            message: `Road Map for your project`,
+            name: `roadMap`
+        },
+        {
             type: `list`,                                                              
             message: `Pick your License`,
             name: `license`,
@@ -76,14 +85,10 @@ const questions = [
         },
     ];
 
-// TODO: Create a function to write README file
-
-//JSON.parseInt();
-
-const generateMD = (answers) => `# ${name}Portfolio
+const generateMD = (answers) => `# ${answers.userName} Portfolio
 
 ![badge](https://img.shields.io/badge/license-${answers.license}-blue.svg)
-[![LinkedIn][linkedIn-shield](${answers.linkedIn})
+![badge][(https://img.shields.io/badge/LinkedIn-IN%20-blue)](${answers.linkedIn})
 ${answers.gitHubUser}, ${answers.email}
 
 <!-- TABLE OF CONTENTS -->
@@ -104,29 +109,35 @@ ${answers.gitHubUser}, ${answers.email}
 ${answers.desc}
 
 <!-- GETTING STARTED -->
+## Built With
+${answers.languages}
+
+<!-- GETTING STARTED -->
 ## Getting Started
+${answers.gettingStarted}
 
 To get a local copy up and running follow these simple steps.
 
 <!-- Prerequisites -->
-${test}
+${answers.test}
 
 ### Installation
 
 1. Clone the repo
    sh
-   git clone ${gitClone}
+   git clone ${answers.gitClone}
    
 
 
 
 <!-- USAGE EXAMPLES -->
 ### Usage
-${usage}
-${languages} 
+${answers.usage}
 
-<!-- ROADMAP -->
-### Roadmap
+<!-- ROAD MAP -->
+### Road map
+${answers.roadMap}
+
 
 <!-- CONTRIBUTING -->
 ### Contributing
@@ -139,8 +150,6 @@ Contributions are what make the open source community such an amazing place to b
 4. Push to the Branch (git push origin feature/AmazingFeature)
 5. Open a Pull Request
 
-${contr}
-
 <!-- CONTACT -->
 ## Contact
 
@@ -152,20 +161,13 @@ Email: ${answers.email}
 
 LinkedIn Link: ${answers.linkedIn}
 
-Project Link: [https://github.com/JeffM33/Jeffrey-McLeod-Portfolio-](https://github.com/JeffM33/Jeffrey-McLeod-Portfolio-)
-
-
-
-
-
-
-
-
+Project Link: ${answers.projectLink}
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
 ${answers.contr}`
 
+// TODO: Create a function to write README file
 // TODO: Create a function to initialize app
 function init() 
     {inquirer
