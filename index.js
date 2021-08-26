@@ -88,7 +88,7 @@ const questions = [
 const generateMD = (answers) => `# ${answers.userName} Portfolio
 
 ![badge](https://img.shields.io/badge/license-${answers.license}-blue.svg)
-![badge][(https://img.shields.io/badge/LinkedIn-IN%20-blue)]
+![badge](https://img.shields.io/badge/LinkedIn-IN%20-blue)
 
 <!-- TABLE OF CONTENTS -->
 
